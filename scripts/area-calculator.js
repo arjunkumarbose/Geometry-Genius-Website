@@ -12,7 +12,12 @@ function calculateTriangleArea(){
     console.log(height);
 
     const area = 0.5 * base * height;
-    console.log(area)
+
+    // validate input: base and height
+    if(isNaN(base) || isNaN(height)){
+        alert('Please insert a number');
+        return;
+    }
 
     // show triangle area 
     const areaSpan = document.getElementById('triangle-area');
@@ -50,6 +55,92 @@ function calculateRectangleArea(){
     addToCalculationEntry('Rectangle', area);
 }
 
+function calculateParallelogramArea(){
+    // get Parallelogram width
+    const widthField = document.getElementById('parallelogram-width')
+    const widthValueText = widthField.value;
+    const width = parseFloat(widthValueText);
+    console.log(width);
+
+    // get parallelogram length
+    const lengthField = document.getElementById('parallelogram-length');
+    const lengthValueText = lengthField.value;
+    const length = parseFloat(lengthValueText);
+    console.log(length);
+
+    // validate input: width and length
+    if(isNaN(width) || isNaN(length)){
+        alert('Please insert a number');
+        return;
+    }
+
+    // calculate area
+    const area = width * length;
+
+    // show parallelogram area
+    const parallelogramAreaSpan = document.getElementById('parallelogram-area');
+    parallelogramAreaSpan.innerText = area;
+
+    addToCalculationEntry('Parallelogram', area);
+}
+
+function calculateRhombusArea(){
+    // get rhombus width
+    const widthField = document.getElementById('rhombus-width')
+    const widthValueText = widthField.value;
+    const width = parseFloat(widthValueText);
+    console.log(width);
+
+    // get rhombus length
+    const lengthField = document.getElementById('rhombus-height');
+    const lengthValueText = lengthField.value;
+    const length = parseFloat(lengthValueText);
+    console.log(length);
+
+    // validate input: width and length
+    if(isNaN(width) || isNaN(length)){
+        alert('Please insert a number');
+        return;
+    }
+
+    // calculate area
+    const area = 0.5 * width * length;
+
+    // show rhombus area
+    const rhombusAreaSpan = document.getElementById('rhombus-area');
+    rhombusAreaSpan.innerText = area;
+
+    addToCalculationEntry('Rhombus', area);
+}
+
+function calculatePentagonArea(){
+    // get pentagon width
+    const widthField = document.getElementById('pentagon-width')
+    const widthValueText = widthField.value;
+    const width = parseFloat(widthValueText);
+    console.log(width);
+
+    // get pentagon length
+    const lengthField = document.getElementById('pentagon-height');
+    const lengthValueText = lengthField.value;
+    const length = parseFloat(lengthValueText);
+    console.log(length);
+
+    // validate input: width and length
+    if(isNaN(width) || isNaN(length)){
+        alert('Please insert a number');
+        return;
+    }
+
+    // calculate area
+    const area = 0.5 * width * length;
+
+    // show pentagon area
+    const pentagonAreaSpan = document.getElementById('pentagon-area');
+    pentagonAreaSpan.innerText = area;
+
+    addToCalculationEntry('Pentagon', area);
+}
 
 // reusable function --> reduce duplicate code
 function calculateParallelogramArea(){
@@ -72,8 +163,12 @@ function calculateEllipseArea(){
     const minorRadius = getInputValue('ellipse-minor-radius');
     const area = 3.14 * majorRadius * minorRadius;
     const areaTwoDecimal = area.toFixed(2);
+    // validate
+    if(isNaN(majorRadius) || isNaN(minorRadius)){
+        alert('Please insert number');
+        return
+    }
     setElementInnerText('ellipse-area', areaTwoDecimal);
-
     addToCalculationEntry('Ellipse', areaTwoDecimal);
 }
 
